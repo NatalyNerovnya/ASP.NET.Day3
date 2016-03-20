@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace CustomFormatProvider
 {
+    /// <summary>
+    /// Class for setting format
+    /// </summary>
     public class CustomFormatProvider : IFormatProvider, ICustomFormatter
     {
 
@@ -15,7 +18,7 @@ namespace CustomFormatProvider
             return formatType == typeof(ICustomFormatter) ? this : null;
         }
 
-        public string Format(string format, Customer custom, IFormatProvider formatProvider)
+        private string Format(string format, Customer custom, IFormatProvider formatProvider)
         {
             if (format == null)
                 return custom.ToString();
@@ -45,6 +48,8 @@ namespace CustomFormatProvider
                 return arg.ToString();
             if(arg == null)
                 throw new ArgumentNullException();
+            if(!(arg is Customer))
+                throw new ArgumentException();
 
             return Format(format, (Customer) arg, formatProvider);
         }
