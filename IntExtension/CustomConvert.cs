@@ -6,22 +6,41 @@ using System.Threading.Tasks;
 
 namespace IntExtension
 {
+    /// <summary>
+    /// Class for converting decimal integer into hexadecimal system
+    /// </summary>
     public static class CustomConvert
     {
+        #region Fields
+
         private enum hexLetters
         {
             A = 10, B, C, D, E, F          
         }
 
-        public static string ConvertToHex(this int x)
+        #endregion
+
+#region Public Methods
+        public static string ToHexToString(this int x)
         {
             if (Math.Abs(x) < 16)
                 if (x > 0)
                     return ((hexLetters)x).ToString();
                 else
                     return "-" + ((hexLetters)Math.Abs(x)).ToString();
-
             int sign = x / Math.Abs(x);
+            if (sign == -1)
+                return $"-0x{x.ConvertToHex()}";
+            else
+                return $"0x{x.ConvertToHex()}";
+
+        }
+
+        #endregion
+
+#region Private Methods
+        private static string ConvertToHex(this int x)
+        {
             x = Math.Abs(x);
             int remainder = 0;
             StringBuilder str = new StringBuilder();
@@ -37,18 +56,13 @@ namespace IntExtension
                 numberOfCharacters++;
             } while (x != 0);
 
-            if (sign < 0)
-            {
-                str.Append("-");
-                numberOfCharacters++;
-            }
             char[] hex = new char[numberOfCharacters];
             str.CopyTo(0, hex, 0, numberOfCharacters);
             Array.Reverse(hex);
 
-
             return new string(hex);
         }
+        #endregion
 
     }
 }
