@@ -11,10 +11,11 @@ namespace IntExtensionTest
     {
         static void Main(string[] args)
         {
-            Console.WriteLine($"-12235 = {(-12235).ConvertToHex()}");
-            Console.WriteLine($"73243 = {(73243).ConvertToHex()}");
-            Console.WriteLine($"16 = {(16).ConvertToHex()}");
-            Console.WriteLine($"15 = {(15).ConvertToHex()}");
+            Console.WriteLine($"-12235 = {(-12235).ToHexToString()}");
+            Console.WriteLine($"73243 = {(73243).ToHexToString()}");
+            Console.WriteLine($"16 = {(16).ToHexToString()}");
+            Console.WriteLine($"15 = {(15).ToHexToString()}");
+            Console.WriteLine($"7 = {(7).ToHexToString()}");
 
             Console.Read();
         }
