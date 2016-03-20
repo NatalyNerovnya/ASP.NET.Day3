@@ -20,7 +20,12 @@ namespace IntExtension
 
         #endregion
 
-#region Public Methods
+        #region Public Methods
+        /// <summary>
+        /// Represents integer in hexadecimal system
+        /// </summary>
+        /// <param name="x">Integer in decimal system</param>
+        /// <returns>Hexadecimal representation in format (-)0x######</returns>
         public static string ToHexToString(this int x)
         {
             if (Math.Abs(x) < 16)
@@ -38,7 +43,12 @@ namespace IntExtension
 
         #endregion
 
-#region Private Methods
+        #region Private Methods
+        /// <summary>
+        /// Represents integer in hexadecimal system (without sign "-")
+        /// </summary>
+        /// <param name="x">Integer in decimal system</param>
+        /// <returns>Hexadecimal representation (without sign "-")</returns>
         private static string ConvertToHex(this int x)
         {
             x = Math.Abs(x);
