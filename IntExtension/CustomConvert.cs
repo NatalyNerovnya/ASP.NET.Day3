@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace IntExtension
 {
     /// <summary>
     /// Class for converting decimal integer into hexadecimal system
     /// </summary>
-    public static class CustomConvert
+    public static class CustomConvert 
     {
         #region Fields
 
@@ -40,10 +37,10 @@ namespace IntExtension
                 return $"0x{x.ConvertToHex()}";
 
         }
-
         #endregion
 
         #region Private Methods
+
         /// <summary>
         /// Represents integer in hexadecimal system (without sign "-")
         /// </summary>

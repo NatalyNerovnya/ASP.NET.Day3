@@ -14,9 +14,28 @@ namespace CustomFormatProvider
         /// Customer class with formating(n,r,p in upper or lower case in any combination)
         /// </summary>
 
+        #region Fields
+        private string name, contactPhone;
+        private decimal revenue;
+
+#endregion
+
         #region Properties
-        public string Name { get; private set; }
-        public string ContactPhone { get; private set; }
+
+
+        public string Name
+        {
+            get { return name; }
+            private set {
+                name = value ?? "Anonimus";
+            }
+        }
+
+        public string ContactPhone { get { return contactPhone; }
+            private set
+            {
+                contactPhone = value ?? "-";
+            } }
         public decimal Revenue { get; private set; }
 
         #endregion
